@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+venv_Isca_Mentoring/
 
 # Spyder project settings
 .spyderproject
