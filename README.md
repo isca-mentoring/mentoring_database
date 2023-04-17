@@ -9,17 +9,24 @@ P.S. The version numbers are recommendations only.
 * PostgreSQl 14
 * Python 3.9
 
-### Create new virtual environment 
+### Virtual environment commands
 ```
-Navigate to repository directory:
+Navigate to "mentoring_database" directory:
 $ pip install virtualenv
-# Create new virtual env
-$ python -m virtualenv venv_Isca_Mentoring (on Windows)
+# Create new virtual env (on Windows)
+$ python -m virtualenv venv_Isca_Mentoring
 # Activate virtual env
-
+$ venv_Isca_Mentoring\Scripts\activate
+# Install required libraries
+$ pip install -r requirements.txt
+# Deactivate virtual env
+$ deactivate
 ```
 
-
+### External data
+* Place the mentee form data at `external_data/mentee_forms/import`
+* Place the mentor form data at `external_data/mentor_forms/import`
+* Populate `PASSWORD` and `HOST` fields in `DATABASES` variable in `Isca_Mentoring/settings.py`
 
 ### Command line interface reference
 CAUTION: When you delete an Event, all Mentor-Registrations and Mentee-Registrations associated with that Event are also removed.
@@ -35,11 +42,11 @@ Delete Event
 $ python manage.py register-event --operation delete --name Interspeech-2022-one-to-one-mentoring
 $ python manage.py register-event --operation delete --name Interspeech-2022-round-table-mentoring
 
-Register Mentors for an Event (This deleted existing mentor registrations for that event)
+Register Mentors for an Event (This deletes existing mentor registrations for that event)
 $ python manage.py register-mentors --form_name Interspeech-2022-one-to-one-mentoring
 $ python manage.py register-mentors --form_name Interspeech-2022-round-table-mentoring
 
-Register Mentees for an Event (This deleted existing mentee registrations for that event)
+Register Mentees for an Event (This deletes existing mentee registrations for that event)
 $ python manage.py register-mentees --form_name Interspeech-2022-round-table-and-one-to-one-mentoring
 
 Export Mentor-Registrations for an Event into a CSV file
